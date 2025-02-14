@@ -1,0 +1,34 @@
+<p>{{ title }}</p>
+<div class="container p-2">
+
+    <!-- <p *ngIf="deleteHero ; else nothingDeleted">hero deleted: {{deleteHero}}</p>
+    <ng-template #nothingDeleted>
+        <p>no hero has been deleted yet</p>
+    </ng-template> -->
+
+    @if(this.deleteHero){
+        <p>hero deleted: {{ deleteHero }} </p>
+    }@else{
+        <p>no hero has been deleted yet</p>
+    }
+
+    @if(this.heroName.length != 0){
+        <input type="button" value="delete last hero" class="btn btn-danger" (click)="deleteLastHero()">
+    }@else {
+        <input type="button" value="reset" class="btn btn-danger" (click)="resetHeroNames()">
+
+    }
+    
+    <ul class="list-group mt-2">
+        <!-- primera forma for en lista
+        <li *ngFor="let item of this.heroName" class="list-group-item">
+            {{item}}
+        </li> -->
+
+        <!-- segunda forma lista for -->
+        @for(item of heroName; track $index){
+            <li class="list-group-item">{{$index}} - {{item}}</li>
+        }
+    </ul>
+</div>
+

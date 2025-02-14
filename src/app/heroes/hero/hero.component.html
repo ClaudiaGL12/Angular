@@ -1,0 +1,33 @@
+<p>{{ title }}</p>
+<div class="container">
+    <dl>
+        <dt>Name:</dt>
+            <dd>{{name}}</dd>
+        <dt>Age:</dt>
+            <dd>{{age}}</dd>
+        <dt>Properties of the class:</dt>
+            <dd>{{tellMeTheProperties()}}</dd>
+        <dt>Capitalized name</dt>
+            <dd>{{theName}}</dd>
+    </dl>
+
+    <!-- primera forma condicional para que aparezcan o no los inputs 
+    <input *ngIf="this.name=='Starfire'" type="button" value="change name" class="btn btn-dark" (click)="changeName()">
+    <input *ngIf="this.age==20" type="button" value="change age"  class="btn btn-dark" (click)="changeAge()"> 
+    <input type="button" value="reset"  class="btn btn-info" (click)="reset()"> -->
+
+    <!-- segunda forma -->
+    @if(this.name=="Starfire"){
+        <input type="button" value="change name" class="btn btn-dark m-2" (click)="changeName()">
+    } @else {
+        <p>holiii (no button name uwu)</p>
+    }
+    @if(this.age==20){
+        <input type="button" value="change age"  class="btn btn-dark m-2" (click)="changeAge()"> 
+    } @else {
+        <p>holiii (no button age uwu)</p>
+    }
+    <input type="button" value="reset"  class="btn btn-danger m-2" (click)="reset()">
+
+    <!-- @for(){} -->
+</div>
